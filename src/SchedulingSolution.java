@@ -14,9 +14,9 @@ public class SchedulingSolution {
         }
          this.json_class1 = new JSONObject(json_class1_read);
     }
-    public void getArrayClass() throws IOException {
+    public void getArrayClass(){
         for (int class_day_number = 0 ; class_day_number < 5 ; class_day_number++) {
-            for (int bell_number_class = 0; bell_number_class < 3; bell_number_class++) {
+            for (int bell_number_class = 0 ; bell_number_class < 3 ; bell_number_class++) {
                 class1[class_day_number][bell_number_class] = json_class1.getJSONObject(String.valueOf(class_day_number)).getString(String.valueOf(bell_number_class));
             }
         }
@@ -26,6 +26,16 @@ public class SchedulingSolution {
         for (int class_day_number = 0 ; class_day_number < 5 ; class_day_number++ ){
             for (int bell_number_class = 0 ; bell_number_class < 3 ; bell_number_class++){
                 print.println();
+            }
+        }
+    }
+    public void getNextHour(){
+        for(int class_day_number = 0 ; class_day_number < 5 ; class_day_number++){
+            for (int bell_number_class = 0 ; bell_number_class < 3 ; bell_number_class++){
+                if (class1[class_day_number][bell_number_class].equals("null")) {
+                    System.out.println(class_day_number+"_"+bell_number_class);
+                    break;
+                }
             }
         }
     }
