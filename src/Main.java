@@ -9,5 +9,6 @@ public class Main {
         solution.readJsonclass1("D:\\json_class1.txt");
         solution.getArrayClass();
         System.out.println( CheckRightClassprogram.checker(problem,solution));
+        System.out.println(solution.getListLeson(2,1));
     }
 }
