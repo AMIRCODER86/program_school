@@ -3,8 +3,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 public class SchedulingProblem {
-   public static String teacher_avaialability[][][] = new String[12][5][3];
-   public static JSONObject json_niaz;
+   public  String teacher_avaialability[][][] = new String[12][5][3];
+   public  JSONObject json_niaz;
     public void readJsonTeachers(String address_file) throws IOException {
        BufferedReader input = new BufferedReader(new FileReader(address_file));
         String readjson;
