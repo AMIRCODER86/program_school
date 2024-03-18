@@ -5,9 +5,9 @@ import java.util.HashMap;
 
 public class SchedulingSolution {
     boolean compeleted = false;
-    public JSONObject json_class1;
-    public  String class1[][] = new String[5][3];
-    private  HashMap<String, Integer> assigned_hours = new HashMap<String, Integer>();
+    private JSONObject json_class1;
+    public String[][] class1 = new String[5][3];
+    private   HashMap<String, Integer> assigned_hours = new HashMap<String, Integer>();
    private  SchedulingProblem problem = new SchedulingProblem();
     public void readJsonclass1(String address_file) throws IOException {
         BufferedReader input = new BufferedReader(new FileReader(address_file));
@@ -47,10 +47,13 @@ public class SchedulingSolution {
         return next_hour;
     }
     public  void assignHour(int day, int hour, String lesson){
-            assigned_hours.replace(lesson, assigned_hours.get(lesson)+1);
-            class1[day][hour] = lesson;
+       if (!class1[day][hour].equals("null")){
+           assigned_hours.replace(class1[day][hour], assigned_hours.get(class1[day][hour])-1);
+       }
+       assigned_hours.replace(lesson, assigned_hours.get(lesson)+1);
+       class1[day][hour] = lesson;
     }
-    public  ArrayList<String> getListLeson(int day, int hour) throws IOException {
+    public ArrayList<String> getListLeson(int day, int hour) throws IOException {
         problem.readJsonNiaz("D:\\niaz.txt");
         problem.readJsonTeachers("D:\\json_teacher.txt");
         ArrayList <String> list_lesson = new ArrayList<String>();
@@ -73,5 +76,16 @@ public class SchedulingSolution {
             }
         }
         return list_lesson;
+    }
+    public SchedulingSolution copy(){
+        SchedulingSolution solution_copy = new SchedulingSolution();
+        for (int x = 0; x < 5; x++){
+            for (int y = 0; y < 3; y++){
+                solution_copy.class1[x][y] = this.class1[x][y];
+            }
+        }
+        solution_copy.assigned_hours = (HashMap<String, Integer>) assigned_hours.clone();
+        solution_copy.problem = problem;
+        return solution_copy;
     }
 }

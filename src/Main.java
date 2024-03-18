@@ -1,23 +1,20 @@
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Main {
     public static SchedulingSolution chinesh(SchedulingSolution solution) throws IOException {
-        int day_and_hour[] = new int[2];
-        day_and_hour = solution.getNextHour();
+        int[] day_and_hour = solution.getNextHour();
         if (day_and_hour[0] == -1 ){
             solution.compeleted = true;
             return solution;
         }
         ArrayList <String> list_lesson = solution.getListLeson(day_and_hour[0], day_and_hour[1]);
-        if(list_lesson.size() == 0){
+        if(list_lesson.isEmpty()){
             return solution;
         }
         for (String lesson : list_lesson){
             solution.assignHour(day_and_hour[0], day_and_hour[1], lesson);
-            SchedulingSolution solution1 = chinesh(solution);
+            SchedulingSolution solution_new = solution.copy();
+            SchedulingSolution solution1 = chinesh(solution_new);
            if (solution1.compeleted){
                return solution1;
            }
