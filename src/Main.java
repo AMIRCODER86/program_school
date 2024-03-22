@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 public class Main {
@@ -31,40 +32,5 @@ public class Main {
         System.out.println( CheckRightClassprogram.checker(problem,solution));
         solution = chinesh(solution);
         solution.print();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        for (int x = 0; x < 15; x++){
-
-//            //System.out.println(solution.getListLeson(day_and_hour[0], day_and_hour[1]));
-//            try {
-//                solution.assignHour(day_and_hour[0], day_and_hour[1], list_lesson.get(0));
-//
-//            }
-//            catch (Exception e){
-//                solution.assignHour(day_and_hour[0], day_and_hour[1], "hichi");
-//            }
-//        }
-//        System.out.println(Arrays.deepToString(solution.class1));
-//        File f=new File(Main.class.getResource("niaz.json").getPath());
-//        JSONObject j=new JSONObject(f);
-//        for (int i=0;i<12;i++){
-//            System.out.println(j.getJSONObject(String.valueOf(i)).getString("0"));
-//        }
     }
 }

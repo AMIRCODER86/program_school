@@ -7,7 +7,7 @@ public class SchedulingSolution {
     boolean compeleted = false;
     private JSONObject json_class1;
     public String[][] class1 = new String[5][3];
-    private   HashMap<String, Integer> assigned_hours = new HashMap<String, Integer>();
+    private   HashMap<String, Integer> assignedhours = new HashMap<String, Integer>();
    private  SchedulingProblem problem = new SchedulingProblem();
     public void readJsonclass1(String address_file) throws IOException {
         BufferedReader input = new BufferedReader(new FileReader(address_file));
